@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
     @rooms = @user.room.all
   end
 
-  # 現在のユーザが持つ特定のルームを取得
+  # 現在のユーザが持つ特定のルームを
   def show
     @room = @user.rooms.find(params[:id])
   end
