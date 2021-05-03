@@ -4,8 +4,8 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
-
-  validates_presence_of :content
+  # validates_presence_of :content
+  mount_uploader :image, ImageUploader
 
   def template
     ApplicationController.renderer.render partial: 'messages/message', locals: { message: self }
