@@ -1,4 +1,9 @@
 <div>
   <span id="user_name"><%= message.user.name %></span>
-  <p id="message_ballon"><%= message.content %></p>
+  <% if message.image? %>
+    <%= image_tag message.image.url id: "message_image" %>
+    <br>
+  <% elsif message.content? %>
+    <p id="message_ballon"><%= message.content %></p>
+  <% end %>
 </div>

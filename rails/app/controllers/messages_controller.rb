@@ -13,6 +13,6 @@ class MessagesController < ApplicationController
   private
     # 送信されたメッセージを取得
     def message_params
-      params.require(:message).permit(:content, :room_id, :user_id)
+      params.require(:message).permit(:content, :room_id, :user_id, :image)
     end
 end

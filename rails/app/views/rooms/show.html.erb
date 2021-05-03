@@ -1,3 +1,5 @@
+<%# チャットルーム1つを表示する %>
+
 <h1><%= @room.name %></h1>
 <%#  %>
 <div id="data" data-room-id="<%= @room.id %>" data-user-id="<%= @user.id %>"></div>
@@ -9,8 +11,13 @@
 <%= form_with model: @message, html: {name: "myform"} do |form| %>
   <%# idは自動でmessage_contentになる %>
   <%= form.text_field :content %>
+
+  <%# 引数に保存したいカラム名を渡す %>
+  <%= form.file_field :image %>
+
   <%= form.hidden_field :user_id, value: @user.id %>
   <%= form.hidden_field :room_id, value: @room.id %>
+  <br>
   <%= form.submit "送信" %>
 <% end %>
 
