@@ -4,6 +4,10 @@ class MessagesController < ApplicationController
   # メッセージフォームsubmit後に実行
   def create
     @message = Message.create!(message_params)
+    @room = Room.find_by(id: message_params[:room_id])
+    
+    # ブロードキャストする
+    RoomChannel.broadcast_to(@room, message: @message.template)
   end
 
   private
